@@ -12,5 +12,6 @@ setup:
 	cp -R "$(mkfile_path)/You-Dont-Know-JS"/* "$(mkfile_path)/build/"; \
 	mkdir "$(mkfile_path)/build/epubs"; \
 	find "$(mkfile_path)/build" -name "*.md" -not -path "*/README.md" -exec $(mkfile_path)/fixImages.py {} \; -execdir sh -c '$(mkfile_path)/makeMetadata.py "$$(pwd)" "$$(pwd)"' \;
+	find "$(mkfile_path)/build" -name "README.md" -delete;
 clean:
 	rm -rf "$(mkfile_path)/build"

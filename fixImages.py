@@ -10,22 +10,23 @@ with open(str(sys.argv[1]), 'r') as file:
 				line = "![](" + line.split(' ')[1].split('=')[1][1:][0:-1] + ")"
 				if(line[len(line)-3:] == '">)'):
 					line = line[0:-3] + ')'
-			else:
-				try:
-					if(sys.argv[2] == '--debug' or sys.argv[2] == '-d'):
-						print(line)
-				except Exception as e:
-					if(str(e) != 'list index out of range'):
-						print(e)
+			try:
+				if(sys.argv[2] == '--debug' or sys.argv[2] == '-d'):
+					print(line)
+			except Exception as e:
+				if(str(e) != 'list index out of range'):
+					print(e)
 			output += line
 			if(line[len(line)-1]!='\n'):
 				output += '\n'
-		#file.write(output)
 	except Exception as e:
 		print('Error!\n%s'%(str(e)))
 		#print(sys.argv[1])
 		sys.exit()
+	file.close()
 with open(str(sys.argv[1]), 'w') as file:
 	file.seek(0)
+	output = output.replace('<br>','<br/>')
 	file.write(output)
 	file.truncate()
+	file.close()
