@@ -4,7 +4,7 @@ Just some scripts to convert [You-Dont-Know-JS](https://github.com/getify/You-Do
 ## Usage:
 
 ```
-git clone https://github.com/aidanharris/You-Dont-Know-JS
+git clone --recursive https://github.com/aidanharris/You-Dont-Know-JS
 cd You-Dont-Know-JS
 make
 ```
