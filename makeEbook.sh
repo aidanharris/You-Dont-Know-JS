@@ -1,4 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -e
+if [ -z "$1" ]
+then
+  echo "Usage: "
+  echo "  $0 parent directory of ebooks to build e.g:"
+  echo '  '"$0 " '"'"$PWD"'"'
+  exit 1
+fi
 printf '\n'
 for d in "$1"/*/
 do
@@ -35,5 +43,5 @@ do
 				printf '\n'
 			fi
 		fi
-	fi	
+  fi
 done
